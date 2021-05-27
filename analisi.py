@@ -18,53 +18,54 @@ def input_data(i):
     elif i=="local":
         df = pd.read_csv(path_i)
         return df
+    else:
+        raise ValueError("input not supported (supported input: from_site, local)")
 
 def analysis(t):
     if t=="summ_d":
         return df.describe()
+    elif t=="summ_i":
+        a = df_datatypes.rename(columns={0:'DType'})
+        b = df_null_count.to_frame().rename(columns={0:'Non-Null Count'})
+        df = b.merge(a, left_index=True, right_index=True).reset_index().rename(columns={'index':'Column'})
+        return df
+    elif t=="summ_p":
+        df_pivot = pd.pivot_table(df, values=['Average viewers', 'Followers','Stream time(minutes)'],
+                                 index = 'Language',
+                                 columns = 'Partnered', aggfunc=np.mean, fill_value=0)
+        df_pivot = df_pivot.reindex(df_pivot['Average viewers'].sort_values(by=True, ascending=False).index)
+        return df_pivot
     elif t=="plot_d":
-        fig, ax = plt.subplots(figsize=(18, 12), nrows=3, ncols=3)
-        fig.suptitle("Distribution variable", fontsize=16)
-
-        ax[0,0].hist(df.iloc[:,1])
-        ax[0,0].set_title(df.columns[1], fontweight='bold')
-        ax[0,1].hist(df.iloc[:,2])
-        ax[0,1].set_title(df.columns[2], fontweight='bold')
-        ax[0,2].hist(df.iloc[:,3])
-        ax[0,2].set_title(df.columns[3], fontweight='bold')
-        ax[1,0].hist(df.iloc[:,4])
-        ax[1,0].set_title(df.columns[4], fontweight='bold')
-        ax[1,1].hist(df.iloc[:,5])
-        ax[1,1].set_title(df.columns[5], fontweight='bold')
-        ax[1,2].hist(df.iloc[:,6])
-        ax[1,2].set_title(df.columns[6], fontweight='bold')
-        ax[2,0].hist(df.iloc[:,7])
-        ax[2,0].set_title(df.columns[7], fontweight='bold')
-        ax[2,1].set_visible(False)
+        df.select_dtypes(include='number').hist(figsize=(22,9), bins=12)
+    elif t=="plot_c":
         corr = df.corr().round(2)
-        sns.heatmap(corr, xticklabels=corr.columns.values, yticklabels=corr.columns.values, vmin=-1, vmax=1, annot=True, ax=ax[2,2])
+        sns.heatmap(corr, xticklabels=corr.columns.values, yticklabels=corr.columns.values, vmin=-1, vmax=1, annot=True)
+    else:
+        raise ValueError("Analysis not supported (supported analysis: summ_d, summ_i, summ_p, plot_d, plot_c)")
 
 def data_output(path):
-    if type_analysis == 'summ_d':
+    if type_analysis == 'summ_d' or type_analysis == 'summ_i' or type_analysis == 'summ_p':
         if path_o.endswith(".txt"):
             file = open(path_o, 'w')
             file.write(analysis(type_analysis).to_string())
             file.close()
         elif path_o.endswith(".csv"):
-            file = open(path_o, 'w')
+            file = open(path_o, 'w', newline='')
             file.write(analysis(type_analysis).to_csv())
             file.close()
         elif path_o.endswith(".json"):
             file = open(path_o, 'w')
             file.write(analysis(type_analysis).to_json())
             file.close()
-    if type_analysis == 'plot_d':
+        else:
+            raise ValueError("Format not supported (supported formats: txt, csv, json)")
+    if type_analysis == 'plot_d' or type_analysis == 'plot_c':
         analysis(type_analysis)
-        plt.savefig(path_o, facecolor='w')
+        plt.savefig(path_o, facecolor='w', bbox_inches='tight')
 
 k_user = os.getenv("KAGGLE_USERNAME", '') #user name
 k_key = os.getenv("KAGGLE_KEY", '') #key
-get_i = os.getenv("GET_INPUT", 'from_site') #path input
+get_i = os.getenv("GET_INPUT", 'local') #path input
 path_i = os.getenv("PATH_INPUT", 'twitchdata-update.csv') #path input
 type_analysis = os.getenv("ANALYSIS_TYPE", 'plot_d') #tipo di analisi
 path_o = os.getenv("PATH_OUTPUT", 'prova.png') #percorso in cui salvare il file

@@ -36,7 +36,7 @@ La fase di esecuzione esegue l’applicazione nell’ambiente di destinazione, u
 
 1.	Scaricare e installare Docker Desktop da https://www.docker.com/products/docker-desktop
 2.	Verificare di avere abilitata la virtualizzazione all’interno della propria macchina.
-3.	Fare un git pull dal seguente repository: 
+3.	Fare un git pull dal seguente repository: https://github.com/marco-moran/Esame
 4.	Aprire il terminale ed eseguire i seguenti comandi: `docker build -t analisi ./`
 5.	Una volta creata l’immagine del docker è possibile procedere alla configurazione dei seguenti parametri all’interno del file env.txt :
 	- KAGGLE_USERNAME: parametro utile al download del dataset direttamente dal sito di Kaggle. L’utilizzo delle API del sito è concesso unicamente agli utenti registrati. 
@@ -45,17 +45,18 @@ Per recuperare l’USERNAME e la KEY bisogna registrarsi sul sito di Kaggle, and
 	- GET_INPUT: parametro per indicare da quale fonte recuperare il dataset. 
 from_site indica che verranno utilizzati i parametri a. e b. per scaricare il dataset direttamente da kaggle. 
 local indica che il dataset verrà recuperato dalla cartella che verrà collegata al docker tramite operazione di binding.
-(default=from_site)
+(default=local)
 	- PATH_INPUT: parametro che indica il nominativo completo del dataset presente all’interno dalla cartella che verrà collegata al docker tramite operazione di binding.
 Utilizzato quando GET_INPUT=local
 (default= twitchdata-update.csv)
 	- ANALYSIS_TYPE: parametro che indica la tipologia di analisi da effettuare sul dataset.
 plot_d restituirà una serie di grafici relativi alla distribuzione delle variabili numeriche
-summ_d restituirà una serie di indicatori statistici relativi alle variabili numeriche
 plot_c restituirà un grafico relativo alla correlazione tra le variabili numeriche
-top10 restituira 
+summ_d restituirà una serie di indicatori statistici relativi alle variabili numeriche
+summ_i restituirà un riepilogo delle colonne, tipo di dato e conteggio dei valori nulli
+summ_p restituirà una tabella pivot che avrà sulle righe la variabile Language e sulle colonne Average viewers, Followers, Stream time(minutes), suddivise se Partnered oppure no
 (default=plot_d)
-	- PATH_OUTPUT: parametro che indica il nominativo completo che si vuole associare all’output dell’applicazione. A seconda dell’analisi scelta si potra scegliere le seguenti estensioni:
-summ_d, top10: .txt, .csv, .json
-plot_d, plot_c: png, jpg
+	- PATH_OUTPUT: parametro che indica il nominativo completo che si vuole associare all’output dell’applicazione. A seconda dell’analisi scelta si potranno scegliere i seguenti formati:
+summ_d, summ_i, summ_p: .txt, .csv, .json
+plot_d, plot_c: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff
 7.	Procedere quindi all’esecuzione del docker con il seguente comando da terminale: `docker run -v <percorso della cartella da collegare>:/usr/app --env-file env.txt analisi`
