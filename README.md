@@ -51,8 +51,9 @@ e le seguenti variabili d'ambiente settabili nel file config.txt:
 1.	Scaricare e installare Docker Desktop da https://www.docker.com/products/docker-desktop
 2.	Verificare di avere abilitata la virtualizzazione all’interno della propria macchina.
 3.	Fare un git pull dal seguente repository: https://github.com/marco-moran/Esame
-4.	Aprire il terminale ed eseguire i seguenti comandi: `docker build -t analisi ./`
-5.	Una volta creata l’immagine del docker è possibile procedere alla configurazione dei seguenti parametri all’interno del file config.txt :
+4.	Entrare all'interno della cartella Esame appena scaricata
+5.	Aprire il terminale ed eseguire i seguenti comandi: `docker build -t analisi ./`
+6.	Una volta creata l’immagine del docker è possibile procedere alla configurazione dei seguenti parametri all’interno del file config.txt :
 	- **KAGGLE_USERNAME**: parametro utile al download del dataset direttamente dal sito di Kaggle. L’utilizzo delle API del sito è concesso unicamente agli utenti registrati. 
 Per recuperare l’USERNAME e la KEY bisogna registrarsi sul sito di Kaggle, andare nel proprio profilo e selezionare ‘Create API Token’. Questo permetterà il download del file ‘kaggle.json’ dove all’interno sono indicati l’USERNAME e la KEY (https://github.com/Kaggle/kaggle-api)
 	- **KAGGLE_KEY**: vedi punto a.
@@ -68,7 +69,7 @@ Per recuperare l’USERNAME e la KEY bisogna registrarsi sul sito di Kaggle, and
 	***plot_c*** restituirà un grafico relativo alla correlazione tra le variabili numeriche.\
 	***summ_d*** restituirà una serie di indicatori statistici relativi alle variabili numeriche.\
 	***summ_i*** restituirà un riepilogo delle colonne, tipo di dato e conteggio dei valori nulli.\
-	***summ_p*** restituirà una tabella pivot che avrà sulle righe la variabile Language e sulle colonne Average viewers, Followers, Stream time(minutes), suddivise se Partnered oppure no.\
+	***summ_p*** restituirà una tabella pivot che avrà sulle colonne *Average viewers*, *Followers*, *Stream time(minutes)*, suddivise se o meno *Partnered*, con il loro valore medio per ogni valore della variabile *Language* posto sulle righe.\
 	*(default=plot_d)*
 	- **PATH_OUTPUT**: parametro che indica il nominativo completo che si vuole associare all’output dell’applicazione. A seconda dell’analisi scelta si potranno scegliere i seguenti formati:
 ***summ_d, summ_i, summ_p:*** .txt, .csv, .json

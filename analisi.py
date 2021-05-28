@@ -73,12 +73,12 @@ def data_output(o):
 
 
 # variabili d'ambiente
-k_user = os.getenv("KAGGLE_USERNAME", 'marc0rm')  # user name Kaggle
-k_key = os.getenv("KAGGLE_KEY", '1270b13d3ee3685961cb75e510f8aa5b')  # key Kaggle
+k_user = os.getenv("KAGGLE_USERNAME", '')  # user name Kaggle
+k_key = os.getenv("KAGGLE_KEY", '')  # key Kaggle
 get_i = os.getenv("GET_INPUT", 'local')  # acquisizione input
 path_i = os.getenv("PATH_INPUT", 'twitchdata-update.csv')  # path input
 type_analysis = os.getenv("ANALYSIS_TYPE", 'plot_d')  # tipo di analisi
-path_o = os.getenv("PATH_OUTPUT", 'prova3.png')  # nominativo/formato output
+path_o = os.getenv("PATH_OUTPUT", 'prova.png')  # nominativo/formato output
 
 df = data_input(get_i)
 data_output(path_o)
