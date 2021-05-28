@@ -1,7 +1,7 @@
 # Prova d’esame di Cloud, Distributed and Parallel Computing<br />Master in Data Science for economics, business and finance 2020/2021<br />Marco Richard Morandi
 
 ### Introduzione:
-Build, deployment e run di un docker per l'analisi di dati di uno specifico dataframe(https://www.kaggle.com/aayushmishra1512/twitchdata).\
+Build, deployment e run di un docker per l'analisi di dati di uno specifico dataset(https://www.kaggle.com/aayushmishra1512/twitchdata).\
 Relazione e instruzioni su build, deployment e run sono presenti nel file relazione.docx
 
 
@@ -13,7 +13,7 @@ All'interno del container: python:3.8-buster
 
 ## Relazione di Progetto
 
-Il progetto si prefigge come obiettivo di restituire 3 tipologie di analisi su un dataset riportante i top Streamers di Twitch. (dataset reperibile su Kaggle al seguente link (https://www.kaggle.com/aayushmishra1512/twitchdata).
+Il progetto si prefigge come obiettivo di restituire tre tipologie di analisi effettuate su un dataset riportante i top Streamers di Twitch. (dataset reperibile su Kaggle al seguente link (https://www.kaggle.com/aayushmishra1512/twitchdata).
 
 Seguendo la metodologia dei Twelve-Factor:
 
