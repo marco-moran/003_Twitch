@@ -32,15 +32,18 @@ La fase di esecuzione esegue l’applicazione nell’ambiente di destinazione, u
 13.	**ADMIN PROCESSES**: I processi di amministrazioni vengono eseguiti un’unica volta durante la build del docker seguendo i passaggi indicati nel Dockerfile permettendo così la creazione di una applicazione pronta per l’uso.
 
 Il codice creato utilizza le seguenti funzioni:
-`def data_input(i):` scelta della provenienza dell'input
-`def analysis(a, df):` scelta dell'analisi da effettuare sul dataset
+
+`def data_input(i):` scelta della provenienza dell'input\
+`def analysis(a, df):` scelta dell'analisi da effettuare sul dataset\
 `def data_output(o):` scelta del nominativo/formato dell'output
-e le seguenti variabili d'ambiente che possono essere settate nel file config.txt:
-`k_user = os.getenv("KAGGLE_USERNAME", '')` user name Kaggle  
-`k_key = os.getenv("KAGGLE_KEY", '')` key Kaggle  
-`get_i = os.getenv("GET_INPUT", 'local')` tipologia di acquisizione input  
-`path_i = os.getenv("PATH_INPUT", 'twitchdata-update.csv')` path input  
-`type_analysis = os.getenv("ANALYSIS_TYPE", 'plot_d')` tipologia di analisi sul dataset  
+
+e le seguenti variabili d'ambiente settabili nel file config.txt:
+
+`k_user = os.getenv("KAGGLE_USERNAME", '')` user name Kaggle\
+`k_key = os.getenv("KAGGLE_KEY", '')` key Kaggle\
+`get_i = os.getenv("GET_INPUT", 'local')` tipologia di acquisizione input\
+`path_i = os.getenv("PATH_INPUT", 'twitchdata-update.csv')` path input\
+`type_analysis = os.getenv("ANALYSIS_TYPE", 'plot_d')` tipologia di analisi sul dataset\
 `path_o = os.getenv("PATH_OUTPUT", 'prova.png')` nominativo/formato output
 
 ## Manuale dettagliato di build e deployment
