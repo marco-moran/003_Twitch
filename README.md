@@ -1,8 +1,7 @@
 # Prova d’esame di Cloud, Distributed and Parallel Computing<br />Master in Data Science for economics, business and finance 2020/2021<br />Marco Richard Morandi
 
 ### Introduzione:
-Build, deployment e run di un docker per l'analisi di dati di uno specifico dataset(https://www.kaggle.com/aayushmishra1512/twitchdata).\
-Relazione e instruzioni su build, deployment e run sono presenti nel file relazione.docx
+Build, deployment e run di un docker per l'analisi di dati di uno specifico dataset(https://www.kaggle.com/aayushmishra1512/twitchdata).
 
 
 ### Requisiti:
