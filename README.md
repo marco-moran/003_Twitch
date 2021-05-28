@@ -5,9 +5,7 @@ Build, deployment e run di un docker per l'analisi di dati di uno specifico data
 
 
 ### Requisiti:
-Docker desktop\
-All'interno del container: python:3.8-buster
-
+Docker desktop
 
 
 ## Relazione di Progetto
