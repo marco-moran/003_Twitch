@@ -68,7 +68,7 @@ Per recuperare l’USERNAME e la KEY bisogna registrarsi sul sito di Kaggle, and
 	***summ_i*** restituirà un riepilogo delle colonne, tipo di dato e conteggio dei valori nulli.\
 	***summ_p*** restituirà una tabella pivot che avrà sulle righe la variabile Language e sulle colonne Average viewers, Followers, Stream time(minutes), suddivise se Partnered oppure no.\
 	*(default=plot_d)*
-	- PATH_OUTPUT: parametro che indica il nominativo completo che si vuole associare all’output dell’applicazione. A seconda dell’analisi scelta si potranno scegliere i seguenti formati:
+	- **PATH_OUTPUT**: parametro che indica il nominativo completo che si vuole associare all’output dell’applicazione. A seconda dell’analisi scelta si potranno scegliere i seguenti formati:
 ***summ_d, summ_i, summ_p:*** .txt, .csv, .json
 ***plot_d, plot_c:*** eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff\
 *(default=prova.png)*
