@@ -10,7 +10,7 @@ Docker desktop
 
 ## Relazione di Progetto
 
-Il progetto si prefigge come obiettivo di restituire tre tipologie di analisi effettuate su un dataset riportante i top Streamers di Twitch. (dataset reperibile su Kaggle al seguente link (https://www.kaggle.com/aayushmishra1512/twitchdata).
+Il progetto si prefigge come obiettivo di restituire cinque tipologie di analisi effettuate su un dataset riportante i top Streamers di Twitch. (dataset reperibile su Kaggle al seguente link (https://www.kaggle.com/aayushmishra1512/twitchdata).
 
 Seguendo la metodologia dei Twelve-Factor:
 
