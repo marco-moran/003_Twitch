@@ -18,7 +18,7 @@ def data_input(i):
         datafrane = pd.read_csv('twitchdata-update.csv')
         return datafrane
     elif i == "local":
-        datafrane = pd.read_csv(path_i)
+        datafrane = pd.read_csv('data/'+path_i)
         return datafrane
     else:
         raise ValueError("input not supported (supported input: from_site, local)")
@@ -54,22 +54,22 @@ def analysis(a, dataframe):
 def data_output(o):
     if type_analysis == 'summ_d' or type_analysis == 'summ_i' or type_analysis == 'summ_p':
         if o.endswith(".txt"):
-            file = open(path_o, 'w')
+            file = open('data/'+o, 'w')
             file.write(analysis(type_analysis, df).to_string())
             file.close()
         elif o.endswith(".csv"):
-            file = open(path_o, 'w', newline='')
+            file = open('data/'+o, 'w', newline='')
             file.write(analysis(type_analysis, df).to_csv())
             file.close()
         elif o.endswith(".json"):
-            file = open(path_o, 'w')
+            file = open('data/'+o, 'w')
             file.write(analysis(type_analysis, df).to_json())
             file.close()
         else:
             raise ValueError("Format not supported (supported formats: txt, csv, json)")
     if type_analysis == 'plot_d' or type_analysis == 'plot_c':
         analysis(type_analysis, df)
-        plt.savefig(o, facecolor='w', bbox_inches='tight')
+        plt.savefig('data/'+o, facecolor='w', bbox_inches='tight')
 
 
 # variabili d'ambiente
