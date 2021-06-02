@@ -74,4 +74,4 @@ Per recuperare l’USERNAME e la KEY bisogna registrarsi sul sito di Kaggle, and
 ***plot_d, plot_c:*** eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff\
 *(default=prova.png)*
 7.	Procedere quindi all’esecuzione del docker con il seguente comando da terminale: `docker run -v <percorso della cartella da collegare>:/usr/app/data --env-file config.txt analisi`.\
-La cartella selezionata dovrà contenere il dataset e il file config.txt e sarà inoltre il luogo dove verrano salvati gli output dell'applicazione
+La cartella da collegare dovrà contenere il dataset al proprio interno e sarà inoltre il luogo dove verrano salvati gli output dell'applicazione
