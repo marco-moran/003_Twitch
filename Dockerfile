@@ -6,4 +6,5 @@ COPY requirements.txt /usr/app/
 COPY analisi.py /usr/app/
 RUN pip install -r requirements.txt
 RUN rm requirements.txt
+RUN mkdir data
 CMD python analisi.py
